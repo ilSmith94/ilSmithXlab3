@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEvents : MonoBehaviour
+namespace Golf
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameEvents
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static System.Action onCollisionStone;
+        public static System.Action onStickHit;
+        public static void CollisionStonesInvoke(Collision coliision)
+        {
+            onCollisionStone?.Invoke();
+        }
+        public static void StickHit()
+        {
+            onStickHit?.Invoke();
+        }
     }
 }
